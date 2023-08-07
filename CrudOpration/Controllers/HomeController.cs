@@ -27,6 +27,7 @@ namespace CrudOpration.Controllers
 
         public ActionResult Category()
         {
+
             var data = cr.categories.ToList();
             return View(data);
         }
