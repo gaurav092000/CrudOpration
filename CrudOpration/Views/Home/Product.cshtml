@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CrudOpration.Models.Product>
+
+@{
+    ViewBag.Title = "Product";
+}
+
+<h2>Product</h2>
+ @Html.Raw(TempData["Delete"])
+@Html.Raw(TempData["Edit"])
+@Html.Raw(TempData["procreate"])
+
+<p>
+    @Html.ActionLink("Create New", "Createe")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Editt", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Detailss", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Deletee", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
+
+</table>
