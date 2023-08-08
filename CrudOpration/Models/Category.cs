@@ -4,9 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CrudOpration.Models
 {
+
+    [Table("Category")]
     public class Category
     {
         [Key]
@@ -22,5 +25,6 @@ namespace CrudOpration.Models
         [DisplayName("Status")]
         //[ScaffoldColumn(false)]
         public bool Status { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

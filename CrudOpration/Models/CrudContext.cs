@@ -8,7 +8,7 @@ namespace CrudOpration.Models
 {
     public class CrudContext : DbContext
     {
-        public DbSet<Category> categories { get; set; }
-        public DbSet<Product> products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

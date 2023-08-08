@@ -7,6 +7,8 @@ using System.Web;
 
 namespace CrudOpration.Models
 {
+
+    [Table("Product")]
     public class Product
     {
         [Key]
@@ -17,8 +19,11 @@ namespace CrudOpration.Models
         public string ProductDescription { get; set; }
 
         public string ProductPrice { get; set; }
+        public int CategoryId { get; set; }
 
-        public Category CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        public virtual Category Category { get; set; }
 
+      
     }
 }

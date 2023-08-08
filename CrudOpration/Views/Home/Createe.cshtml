@@ -1,17 +1,18 @@
 ﻿@model CrudOpration.Models.Product
 
 @{
+    var categorySelectList = TempData["CategoryList"] as SelectList;
     ViewBag.Title = "Createe";
 }
 
-<h2>Product Createe</h2>
+<h2>Createe</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-
+    <h4>Product</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -37,20 +38,20 @@
             @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
         </div>
     </div>
-        <div class="form-group"
-             @Html.LabelFor(model => model.CategoryId, new { @class = "control-label col-md-2" })
-           <div class="col-md-10">
-            @Html.DropDownListFor(model => model.ProductPrice, TempData["categorytbl"] as SelectList,"--SELECT--",  new { @class = "form-control" } )
-            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-           </div>
-        </div>
-    <p></p>
+
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-info" />
+        @Html.LabelFor(m => m.CategoryId)
+        <div class="col-md-10">
+            @Html.DropDownList("CategoryId", categorySelectList, "Select Category", new { @class = "form-control" })
         </div>
     </div>
+    </div>
 
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
 }
 
 <div>
