@@ -14,11 +14,16 @@ namespace CrudOpration.Models
         [Key]
         public int ProductId { get; set; }
 
+        [Required(ErrorMessage = "please enter Name")]
         public string ProductName { get; set; }
 
+        [Required(ErrorMessage ="please enter desc")]
         public string ProductDescription { get; set; }
 
+        [Required(ErrorMessage = "please enter price")]
         public string ProductPrice { get; set; }
+
+        [Required(ErrorMessage = "please Select Category")]
         public int CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]

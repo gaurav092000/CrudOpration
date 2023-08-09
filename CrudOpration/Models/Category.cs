@@ -17,11 +17,12 @@ namespace CrudOpration.Models
         public int CategoryId { get; set; }
 
         [DisplayName("Category Name")]
+        [Required(ErrorMessage ="please enter Name")]
         public string CategoryName { get; set; }
 
         [DisplayName("Description")]
+        [Required(ErrorMessage ="please enter description")]
         public string Description { get; set; }
-
         [DisplayName("Status")]
         //[ScaffoldColumn(false)]
         public bool Status { get; set; }
