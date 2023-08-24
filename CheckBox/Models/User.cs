@@ -11,13 +11,24 @@ namespace CheckBox.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage ="Username is Required")]
+        [DisplayName("Username")]
         public string Username { get; set; }
+
+
+        [Required(ErrorMessage = "Password is Required")]
+        [DisplayName("Password")]
         public string Password { get; set; }
 
+
+        [DisplayName("Remeber Me")]
         public bool Remeberme { get; set; }
     }
 }
